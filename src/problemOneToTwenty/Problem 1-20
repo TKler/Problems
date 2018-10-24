@@ -1,0 +1,28 @@
+Problems 1-20
+1: done
+2: done
+3: trees, did that in uni was annoying with a framework, not gonna do it without :D
+4: done
+5: functional
+6: XOR linked list, should not be possible in java? I know the concept
+7: done
+8: trees, get all childs, if parent has same value check children and +1 and so on, or set flags in nodes
+9: done, was fun
+10: functional
+11: autocomplete for words.
+	Idea: tree based on charAt where index is depth, each node has a bool if this is a word, or a list with all words if you want to distinguish between words with the same syntax
+12: steps... never seen that one before ^^
+13: longest substring easy in NxM, perhaps better possible?
+14: Monte Carlo Methods
+15: uniform random from large stream
+16: isn't this just a queue?
+17: XML from string
+18: will do
+19: weird bad board problem, will do
+20: loopdetection..
+
+
+do: 15, 11, 18
+think: 13, 16
+
+if bored: 14, 12
