@@ -3,6 +3,7 @@ package problemOneToTwenty;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -31,50 +32,64 @@ public class Problem18SecondTry
 //	this means we gain future runtime for each step and are in O(2n).
 //	As for getting the max, this is now easy, just take the first, check index take the next first.
 //	So idealy O(n) operations, if it is not ideal we end up with 2n operations, but again we prune the list and thus make insert easier.
-//	we should end up with something between insert in 2n or getMax in 2n, but not both. Running in O(3n) amortised (which is luckily a word in english too :D).
-//	Space is also in O(k)? but worst in O(n), but averge should average out.
+//	we should end up with something between insert in 2n or getMax in 2n, but not both. Running in O(3n) amortised (which is, luckily, a word in english too :D).
+//	Space is also in O(k)? but worst in O(n), but averge should average out.	
+//	
+//	Actually do we run in O(2n)? we insert each element once and we take it out once, hm not sure how placement factors in, too tired
+
 	
-//	
-//	
-////	@assert array != empty or null
-////	@assert subarraySize != 0
+	//	@assert array != empty or null
+//	@assert subarraySize != 0
 	public int[] getMaximumValuesOfSubarrays(int[] array, int subarraySize)
 	{
 		ArrayList<Integer> result = new ArrayList<Integer>(array.length - subarraySize+1);
-//
-//		int windowMaxIndex = computeMaxIndex(array, subarraySize, 0);
-//		
-//		result.add(array[windowMaxIndex]);
-//		
-//		for(int i = 1; i < array.length - subarraySize + 1; i++)
-//		{
-//			int newIndex = i+subarraySize-1;
-//			int newValue = array[newIndex];
-//			int oldValue = array[windowMaxIndex];
-//			
-//			if(newValue >= oldValue)
-//				windowMaxIndex = newIndex;
-//			
-//			if(windowMaxIndex == i-1)
-//				windowMaxIndex = computeMaxIndex(array, subarraySize, i);
-//			
-//			result.add(array[windowMaxIndex]);
-//		}
+
+		LinkedList<Node> list = new LinkedList<Node>();
+		
+		for(int i = 0; i < subarraySize; i++)
+		{
+			insertIntoList(list, 0, new Node(i, array[i]));
+		}
+		result.add(getMaxFromList(list, 0));
+		
+		for(int lowestIndex = 1; lowestIndex < array.length-subarraySize+1; lowestIndex++)
+		{
+			int newIndex = lowestIndex+subarraySize-1;
+			insertIntoList(list, lowestIndex, new Node(newIndex, array[newIndex]));
+			result.add(getMaxFromList(list, lowestIndex));
+		}
 		return result.stream().mapToInt(Integer::valueOf).toArray(); 
 	}
-//
-////	@assert no out of bound
-//	private int computeMaxIndex(int[] array, int subarraySize, int offSet)
-//	{
-//		int windowMaxIndex = offSet;
-//		for(int i = offSet; i < offSet + subarraySize; i++)
-//		{
-//			if(array[i] >= array[windowMaxIndex])
-//				windowMaxIndex = i;
-//		}
-//		return windowMaxIndex;
-//	}
 	
+	private Integer getMaxFromList(LinkedList<Node> list, int lowestValidIndex)
+	{
+		while(list.peekFirst().getIndexInArray() < lowestValidIndex)
+			list.removeFirst();
+		
+		return list.peekFirst().getValue();
+	}
+
+	private void insertIntoList(LinkedList<Node> list, int lowestValidIndex, Node node)
+	{
+		while(!list.isEmpty() && (list.peekLast().getIndexInArray() < lowestValidIndex || node.getValue() >= list.peekLast().getValue()))
+			list.removeLast();
+		
+		list.addLast(node);
+	}
+
+	public class Node
+	{
+		int _value,_indexInArray;
+		public Node(int indexFoundIn, int value)
+		{
+			_indexInArray = indexFoundIn;
+			_value = value;
+		}
+		public int getValue()
+		{return _value;}
+		public int getIndexInArray()
+		{return _indexInArray;}
+	}
 	
 	@Nested
 	public class TestProblem18SecondTry
