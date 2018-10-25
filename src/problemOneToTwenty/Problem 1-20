@@ -14,7 +14,7 @@ Problems 1-20
 12: steps... never seen that one before ^^
 13: longest substring easy in NxM, perhaps better possible?
 14: Monte Carlo Methods
-15: uniform random from large stream
+15: done
 16: isn't this just a queue?
 17: XML from string
 18: will do
@@ -22,7 +22,7 @@ Problems 1-20
 20: loopdetection..
 
 
-do: 15, 11, 18
+do: 11, 18
 think: 13, 16
 
 if bored: 14, 12
