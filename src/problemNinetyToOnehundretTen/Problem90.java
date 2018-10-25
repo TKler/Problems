@@ -1,5 +1,4 @@
 package problemNinetyToOnehundretTen;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -62,5 +61,22 @@ public class Problem90
 	 * for a/b = 0.25  =>  1.3c = b+c*1 -> b = 0.3c
 	 * 
 	 * meaning we get b/c = limit(sum(a/b)^n) n->infinite
+	 * the limit is a/(b-a) so we get b/c = a/(b-a)
 	 */
+	/**
+	 * Refers to the better method
+	 * @param a #invalidNumbers
+	 * @param maxRange maxRange
+	 * @param estimatedCallTotal calls
+	 */
+	public int calcBreakEvenAndChoose(List<Integer> invalidNumbers, int maxRange, int estimatedCallTotal)
+	{
+		int noOfInvalidNo = invalidNumbers.size();
+		double resultMethod1 = estimatedCallTotal*(noOfInvalidNo/(maxRange - noOfInvalidNo));
+		double resultMethod2 = maxRange + estimatedCallTotal;
+		if(resultMethod1 > resultMethod2)
+			return generateRandom(maxRange, invalidNumbers);
+		else
+			return generateRandom2(maxRange, invalidNumbers);
+	}
 }
