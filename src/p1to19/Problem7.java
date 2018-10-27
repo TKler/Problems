@@ -1,4 +1,4 @@
-package problemOneToTwenty;
+package p1to19;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.jupiter.api.Nested;

@@ -1,4 +1,4 @@
-package problemOneToTwenty;
+package p1to19;
 
 import java.util.Random;
 

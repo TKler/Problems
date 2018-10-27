@@ -1,4 +1,4 @@
-package problemNinetyToOnehundretTen;
+package p90to120;
 
 import java.util.ArrayList;
 import java.util.List;
