@@ -12,17 +12,17 @@
 30: done
 31: nope
 32: bellman ford negativ loop detection
-33: 
+33: done
 34: nope
-35: 
+35: done
 36: rightmost if leftChild return that else parent?
-37:
+37: done
 38: queens placement
 39: what?
 
 
 
-will do: 33, 35, 37
+will do: 
 if bored: 32, 38
 think about: 39
 
