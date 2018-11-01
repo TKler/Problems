@@ -1,4 +1,4 @@
-package p90to120;
+package p20to40;
 
 import static org.junit.Assert.assertEquals;
 
