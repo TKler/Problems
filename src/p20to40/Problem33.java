@@ -90,5 +90,35 @@ public class Problem33
 			
 			assertEquals(output, printMedian(input));
 		}
+		
+		@Test
+		void increasingInput()
+		{
+			IntStream input = Arrays.stream(new int[] {1,2,3,4,5,6});
+			Double[] array = new Double[] {1.0, 1.5, 2.0, 2.5, 3.0, 3.5};
+			List<Double> output = Arrays.asList(array);
+			
+			assertEquals(output, printMedian(input));
+		}
+		
+		@Test
+		void decreasingInput()
+		{
+			IntStream input = Arrays.stream(new int[] {6,5,4,3,2,1});
+			Double[] array = new Double[] {6.0, 5.5, 5.0, 4.5, 4.0, 3.5};
+			List<Double> output = Arrays.asList(array);
+			
+			assertEquals(output, printMedian(input));
+		}
+		
+		@Test
+		void nullInput()
+		{
+			IntStream input = Arrays.stream(new int[] {});
+			Double[] array = new Double[] {};
+			List<Double> output = Arrays.asList(array);
+			
+			assertEquals(output, printMedian(input));
+		}
 	}
 }

@@ -58,7 +58,41 @@ public class Problem21
 		@Test
 		void test()
 		{
-			assertEquals(2, requiredNumberOfRooms(new int[] {30,75, 0,50, 60,150})); 
+			int[] inputArray = new int[] {30,75, 0,50, 60,150};
+			int output = 2;
+			assertEquals(output, requiredNumberOfRooms(inputArray)); 
+		}
+		
+		@Test
+		void allOneTime()
+		{
+			int[] inputArray = new int[] {30,75, 30,75, 30,75};
+			int output = 3;
+			assertEquals(output, requiredNumberOfRooms(inputArray)); 
+		}
+		
+		@Test
+		void fullMorning()
+		{
+			int[] inputArray = new int[] {30,75, 30,75, 30,75, 20,80, 10,70, 120,150, 130,150};
+			int output = 5;
+			assertEquals(output, requiredNumberOfRooms(inputArray)); 
+		}
+		
+		@Test
+		void sparse()
+		{
+			int[] inputArray = new int[] {10,12, 20,26, 100,120};
+			int output = 1;
+			assertEquals(output, requiredNumberOfRooms(inputArray)); 
+		}
+		
+		@Test
+		void oneUnderAll()
+		{
+			int[] inputArray = new int[] {10,12, 20,26, 100,120, 1,200};
+			int output = 2;
+			assertEquals(output, requiredNumberOfRooms(inputArray)); 
 		}
 	}
 

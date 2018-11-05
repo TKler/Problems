@@ -1,4 +1,5 @@
 package p1to19;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.HashSet;
@@ -36,7 +37,15 @@ public class Problem1
 		@Test
 		void test()
 		{
-			assertTrue(doTheyAddUp(new int[]{10, 15, 3, 7}, 17));
+			int[] inputArray = new int[]{10, 15, 3, 7};
+			assertTrue(doTheyAddUp(inputArray, 17));
+		}
+		
+		@Test
+		void test2()
+		{
+			int[] inputArray = new int[]{10, 15, 3, 4, 1};
+			assertFalse(doTheyAddUp(inputArray, 17));
 		}
 	}
 }

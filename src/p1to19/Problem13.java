@@ -28,7 +28,7 @@ public class Problem13
 		{
 			while(endIndex < word.length()-1 && charCount.size() <= distinctChars)
 			{
-				charCount.merge(word.charAt(endIndex), 1, Integer::sum);
+				charCount.merge(word.charAt(endIndex), 1, (a,b) -> a + b);
 				endIndex++;
 			}
 			
@@ -38,7 +38,7 @@ public class Problem13
 			{
 				Character charAtStart = word.charAt(startIndex);
 				if(charCount.get(charAtStart) > 1)
-					charCount.merge(charAtStart, -1, Integer::sum);
+					charCount.merge(charAtStart, -1, (a,b) -> a + b);
 				else
 					charCount.remove(charAtStart);
 				
@@ -66,6 +66,14 @@ public class Problem13
 			int inputInt = 2;
 			String inputWord = "abcb";
 			int output = 3;
+			assertEquals(output, getLengthofLongestSubstringWithDistinctChars(inputWord, inputInt));
+		}
+		@Test
+		void test3()
+		{
+			int inputInt = 2;
+			String inputWord = "abcbcbaaaaaacbcabcaccccccccccc";
+			int output = 12;
 			assertEquals(output, getLengthofLongestSubstringWithDistinctChars(inputWord, inputInt));
 		}
 	}

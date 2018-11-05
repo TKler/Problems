@@ -19,17 +19,17 @@ public class Problem2
 	//@assert no element is 0;
 	//@assert fullProduct will be under Intmax
 	//@assert arraysize over 1
-	public int[] productAllWithoutThemselfs2(int[] array)
-	{
-		int fullProduct = 1;
-		for(int i : array)
-			fullProduct = fullProduct * i;
-		
-		for(int i = 0; i < array.length; i++)
-			array[i] = fullProduct / array[i];
-		
-		return array;
-	}
+//	public int[] productAllWithoutThemselfs2(int[] array)
+//	{
+//		int fullProduct = 1;
+//		for(int i : array)
+//			fullProduct = fullProduct * i;
+//		
+//		for(int i = 0; i < array.length; i++)
+//			array[i] = fullProduct / array[i];
+//		
+//		return array;
+//	}
 	
 	
 	public int[] productAllWithoutThemselfs(int[] array)

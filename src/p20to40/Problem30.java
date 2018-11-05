@@ -62,21 +62,27 @@ public class Problem30
 		}
 		
 		@Test
-		void test2()
+		void rightHigh()
 		{
 			assertEquals(8, trappedWater(new int[] {3, 0, 1, 3, 0, 5}));
 		}
 		
 		@Test
-		void test3()
+		void middleHigh()
 		{
 			assertEquals(8, trappedWater(new int[] {3, 0, 1, 5, 0, 3}));
 		}
 		
 		@Test
-		void test4()
+		void leftHigh()
 		{
 			assertEquals(8, trappedWater(new int[] {5, 0, 1, 3, 0, 3}));
+		}
+		
+		@Test
+		void leftHighMiddle()
+		{
+			assertEquals(8, trappedWater(new int[] {5, 0, 4, 2, 0, 3}));
 		}
 	}
 }

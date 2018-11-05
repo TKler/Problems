@@ -24,7 +24,7 @@ import org.junit.jupiter.api.Test;
 //Do this in O(n) time and O(k) space. You can modify the input array in-place and you do not need to store the results. You can simply print them out as you compute them.
 public class Problem18SecondTry
 {
-//	IDea, sorted linkedlist like structure. add at the smaller elements, throw everything with low index or to low value out.
+//	Idea, sorted linkedlist like structure. add at the smaller elements, throw everything with low index or to low value out.
 //	this might end up amortising itself.
 //	think about
 //	insert is either end in O(1) or at the beginning, meaning iteration over all elements but also reseting since we delete all others so max O(n) 
@@ -32,13 +32,14 @@ public class Problem18SecondTry
 //	this means we gain future runtime for each step and are in O(2n).
 //	As for getting the max, this is now easy, just take the first, check index take the next first.
 //	So idealy O(n) operations, if it is not ideal we end up with 2n operations, but again we prune the list and thus make insert easier.
-//	we should end up with something between insert in 2n or getMax in 2n, but not both. Running in O(3n) amortised (which is, luckily, a word in english too :D).
-//	Space is also in O(k)? but worst in O(n), but averge should average out.	
+//	we should end up with something between insert in 2n or getMax in 2n, but not both. Running in O(3n) amortised 
+//	(which is, luckily, a word in english too :D).
+//	Space is also in O(k)? but worst in O(n), but average should average out.	
 //	
 //	Actually do we run in O(2n)? we insert each element once and we take it out once, hm not sure how placement factors in, too tired
 
 	
-	//	@assert array != empty or null
+//	@assert array != empty or null
 //	@assert subarraySize != 0
 	public int[] getMaximumValuesOfSubarrays(int[] array, int subarraySize)
 	{
@@ -97,8 +98,28 @@ public class Problem18SecondTry
 		@Test
 		void test()
 		{
-			assertArrayEquals(new int[] {10,7,8,8}, getMaximumValuesOfSubarrays
-					(new int[]{10, 5, 2, 7, 8, 7}, 3));
+			int[] inputArray = new int[]{10, 5, 2, 7, 8, 7};
+			int[] output = new int[] {10,7,8,8};
+			assertArrayEquals(output, 
+					getMaximumValuesOfSubarrays(inputArray, 3));
+		}
+		
+		@Test
+		void testDecreasingArray()
+		{
+			int[] inputArray = new int[]{10, 9, 8, 7, 6, 5};
+			int[] output = new int[] {10,9,8,7};
+			assertArrayEquals(output, 
+					getMaximumValuesOfSubarrays(inputArray, 3));
+		}
+		
+		@Test
+		void testIncreasingArray()
+		{
+			int[] inputArray = new int[]{5,6,7,8,9,10};
+			int[] output = new int[] {7,8,9,10};
+			assertArrayEquals(output, 
+					getMaximumValuesOfSubarrays(inputArray, 3));
 		}
 	}
 }
