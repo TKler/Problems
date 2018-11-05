@@ -12,7 +12,7 @@ Problems 1-19
 11: autocomplete for words.
 	Idea: tree based on charAt where index is depth, each node has a bool if this is a word, or a list with all words if you want to distinguish between words with the same syntax
 12: steps... never seen that one before ^^
-13: longest substring easy in NxM, perhaps better possible?
+13: done
 14: Monte Carlo Methods
 15: done
 16: isn't this just a queue?
@@ -21,6 +21,6 @@ Problems 1-19
 19: similar to the nonadjacent maxSum problem, but with application for conflict detection.
 
 
-think: 13, 16
+think: 16
 
 if bored: 14, 12
