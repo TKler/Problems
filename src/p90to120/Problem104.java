@@ -27,5 +27,6 @@ public class Problem104
 	// If it is a single liked list, have fun. Your data structure was not made for this -.-
 	// Either build a DLL and do the above
 	// Use a stack at n space cost and 2n time
-	// Or invert the latter half of the list for 1 space cost and n time, and then move outwards from there instead of inwards
+	// Or invert the latter half of the list for 1 space cost and n time, 
+	// and then move outwards from there instead of inwards
 }
