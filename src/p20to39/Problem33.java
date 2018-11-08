@@ -1,4 +1,4 @@
-package p20to40;
+package p20to39;
 //Good morning! Here's your coding interview problem for today.
 //
 //This problem was asked by Microsoft.
