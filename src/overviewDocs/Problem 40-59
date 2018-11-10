@@ -1,2 +1,6 @@
 40 done for doubles, don't see a solution for triples in O(n) time with O(1) space
-41
+41 did something with recursive dfs for fun instead of a good solution
+42 done
+
+
+revisit: 41

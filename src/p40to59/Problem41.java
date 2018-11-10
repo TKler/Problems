@@ -1,5 +1,6 @@
 package p40to59;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -19,10 +20,54 @@ import java.util.List;
 //However, the first one is lexicographically smaller.
 public class Problem41
 {
-	public List<String> dfsSearchForIntiniery(List<String> flights)
+//	removed return in favor of print, this is worse, but way less hassle, would solve this way different if given the task and wanted to
+//	try if I could get recursive dfs to work which is not nice for return :D
+	public void dfsSearchForIntiniery(List<String> flights, String startAirport)
 	{
 		Collections.sort(flights);
+		boolean[] visited = new boolean[flights.size()-1]; 
 		
-		return flights;
+		recursiveCall(flights, visited , getStartIndex(flights, startAirport), new ArrayList<String>());
+	}
+	
+	private int getStartIndex(List<String> flights, String startAirport)
+	{
+		int index = 0;
+		for(String flight : flights)
+		{
+			if(flight.length() > startAirport.length() 
+					&& startAirport.equals(flight.substring(0, startAirport.length())))
+				return index;
+			index++;
+		}
+		return 0;
+	}
+
+	private void recursiveCall(List<String> flights, boolean[] visited, int currentAirportIndex, List<String> intinery)
+	{
+		visited[currentAirportIndex] = true;
+		String targetAirport = getTarget(flights.get(currentAirportIndex));
+		intinery.add(targetAirport);
+		
+		if(intinery.size() == flights.size())
+		{
+			System.out.println(intinery);
+		}
+		
+		for(int i = 0; i < flights.size(); i++)
+		{
+			if(flights.get(i).length() > targetAirport.length() 
+					&& targetAirport.equals(flights.get(i).substring(0, targetAirport.length()))
+					&& !visited[i])
+			{
+				recursiveCall(flights, visited, i, intinery);
+			}
+		}
+	}
+
+	private String getTarget(String string)
+	{
+		String[] airports = string.split(" ");
+		return airports[1];
 	}
 }
