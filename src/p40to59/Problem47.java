@@ -27,8 +27,7 @@ public class Problem47
 		for(int price : stockPriceDevelopment)
 		{
 			maxWin = Math.max(maxWin, price - lowest);
-			if(price < lowest)
-				lowest = price;
+			lowest = lowest < price ? lowest : price;
 		}
 		
 		return maxWin;
